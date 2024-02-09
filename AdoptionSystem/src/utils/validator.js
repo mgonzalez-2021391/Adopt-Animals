@@ -39,3 +39,18 @@ export const checkUpdate = (data, userId) => {
         return false
     }
 }
+
+export const checkUpdateAnimal = (data, animalId) => {
+    if (animalId) {
+        if (
+            Object.entries(data).length === 0 ||
+            data.keeper ||
+            data.keeper == ''
+        ) {
+            return false
+        }
+        return true
+    } else {
+        return false
+    }
+}

@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
 const animalSchema = mongoose.Schema({
     name: {
@@ -7,7 +7,6 @@ const animalSchema = mongoose.Schema({
     },
     age: {
         type: String,
-        maxLenght: 2,
         required: true
     },
     weight: {
@@ -35,8 +34,10 @@ const animalSchema = mongoose.Schema({
         required: true
     },
     keeper: {
-        type: String,
-        enum: ['Manuel González'],
+        type: Schema.Types.ObjectId,
+        ref: "User",
         required: true
     }
 })
+
+export default mongoose.model('animal', animalSchema)
